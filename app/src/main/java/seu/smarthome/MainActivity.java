@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void init() {
+        //unique id for client random characters
+        clientId = clientId + System.currentTimeMillis();
+
         client = new MqttAndroidClient(this.getApplicationContext(), broker, clientId);
         MqttConnectOptions options = new MqttConnectOptions();
         options.setMqttVersion(MqttConnectOptions.MQTT_VERSION_3_1);
@@ -160,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
     //play alarm
     public void playAlarm() {
-        if(mediaPlayer == null){
+        if (mediaPlayer == null) {
             mediaPlayer = new MediaPlayer();
         }
 
